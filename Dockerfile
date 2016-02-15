@@ -6,8 +6,8 @@ RUN apt-get update && apt-get upgrade -yqq
 RUN apt-get install -y wget
 RUN wget http://downloads3.ioncube.com/loader_downloads/ioncube_loaders_lin_x86-64.tar.gz
 RUN tar zxvf ioncube_loaders_lin_x86-64.tar.gz
-RUN mv ioncube/ioncube_loader_lin_5.6_ts.so /usr/local/lib/php/extensions/no-debug-non-zts-20131226/
-RUN touch ioncube.ini && echo "extension=ioncube_loader_lin_5.6_ts.so" >> ioncube.ini
+RUN mv ioncube/ioncube_loader_lin_5.6.so /usr/local/lib/php/extensions/no-debug-non-zts-20131226/
+RUN touch /usr/local/etc/php/conf.d/ioncube.ini && echo "zend_extension=ioncube_loader_lin_5.6.so" >> /usr/local/etc/php/conf.d/ioncube.ini
 
 # Install Sass
 RUN apt-get install -y rubygems
