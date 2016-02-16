@@ -3,6 +3,7 @@ Create a docker httpd container with PHP5.6 including the php5-mysql, php-mysql,
 
 ## LAMPR
 To setup your PHP5.6, mysql & redis project in 1 minute run the following commands:
+
     > git clone git@github.com:sohrabkhan/docker_httpd.git
     > docker-compose up (make sure docker-compose is installed)
 
