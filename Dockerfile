@@ -13,6 +13,8 @@ RUN touch /usr/local/etc/php/conf.d/ioncube.ini && echo "zend_extension=ioncube_
 RUN apt-get install -y rubygems
 RUN su -c "gem install sass"
 
+RUN wget https://getcomposer.org/composer.phar
+RUN mv composer.phar /usr/local/bin/composer
 
 RUN docker-php-ext-install -j$(nproc) mysqli pdo pdo_mysql mbstring
 RUN a2enmod rewrite
