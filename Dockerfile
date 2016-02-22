@@ -16,7 +16,8 @@ RUN su -c "gem install sass"
 RUN wget https://getcomposer.org/composer.phar
 RUN mv composer.phar /usr/local/bin/composer
 
-RUN docker-php-ext-install -j$(nproc) mysqli pdo pdo_mysql mbstring
+RUN docker-php-ext-install -j$(nproc) mysqli pdo pdo_mysql mbstring mysql
+RUN apt-get install -y php5-gd
 RUN a2enmod rewrite
 ADD public_html/ /var/www/html/
 ADD custom.conf /etc/apache2/sites-available/custom.conf
