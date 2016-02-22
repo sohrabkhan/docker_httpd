@@ -1,20 +1,6 @@
 web:
   image: sohrabkhan/httpd
   ports:
-    - 8010:80
+    - 80:80
   volumes:
     - ./public_html/:/var/www/html/
-  links:
-    - mysql_database:mysql
-    - redis_cache:redis
-
-mysql_database:
-  image: mysql/mysql-server
-  environment:
-    MYSQL_DATABASE: database
-    MYSQL_ROOT_PASSWORD: password
-  volumes:
-    - ./data:/var/lib/mysql
-
-redis_cache:
-  image: redis:3.0
