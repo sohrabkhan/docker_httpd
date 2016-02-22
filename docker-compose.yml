@@ -1,7 +1,7 @@
 web:
-  build: .
+  image: sohrabkhan/httpd
   ports:
-    - 80:80
+    - 8010:80
   volumes:
     - ./public_html/:/var/www/html/
   links:
@@ -17,4 +17,4 @@ mysql_database:
     - ./data:/var/lib/mysql
 
 redis_cache:
-  image: redis:latest
+  image: redis:3.0

@@ -21,6 +21,7 @@ RUN apt-get install -y php5-gd
 RUN a2enmod rewrite
 ADD public_html/ /var/www/html/
 ADD custom.conf /etc/apache2/sites-available/custom.conf
+ADD custom_php.ini /usr/local/etc/php/conf.d/custom_php.ini
 
 #RUN composer install
 

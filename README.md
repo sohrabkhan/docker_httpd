@@ -9,4 +9,8 @@ To setup your PHP5.6, mysql & redis project in 1 minute run the following comman
 
 With only 2 commands you have your dev environment setup.
 
+## HTTPD Only
+If you want to run this image individually then do the following:
+    > docker run -d -p 80:80 -v $PWD/public_html:/var/www/html sohrabkhan/httpd
+
 ### Note: this is a base image that I use for some of my most simplest projects.
