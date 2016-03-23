@@ -11,7 +11,7 @@ RUN touch /usr/local/etc/php/conf.d/ioncube.ini && echo "zend_extension=ioncube_
 
 # Install xDebug
 RUN pecl install xdebug
-RUN touch /usr/local/etc/php/conf.d/xdebug.ini && echo "zend_extension=xdebug.so" >> /usr/local/etc/php/conf.d/xdebug.ini
+RUN touch /usr/local/etc/php/conf.d/xdebug.ini && echo 'zend_extension=xdebug.so \n xdebug.remote_enable=1 \n xdebug.profiler_enable=1 \n xdebug.profiler_output_dir="/var/xdebug_profiler"' >> /usr/local/etc/php/conf.d/xdebug.ini
 
 # Install Sass
 RUN apt-get install -y rubygems
@@ -25,6 +25,7 @@ RUN apt-get install -y php5-gd
 RUN a2enmod rewrite
 ADD public_html/ /var/www/html/
 ADD custom.conf /etc/apache2/sites-available/custom.conf
+RUN mkdir /var/xdebug_profiler
 
 #RUN composer install
 
