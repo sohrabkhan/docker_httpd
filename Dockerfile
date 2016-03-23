@@ -9,6 +9,10 @@ RUN tar zxvf ioncube_loaders_lin_x86-64.tar.gz
 RUN mv ioncube/ioncube_loader_lin_5.6.so /usr/local/lib/php/extensions/no-debug-non-zts-20131226/
 RUN touch /usr/local/etc/php/conf.d/ioncube.ini && echo "zend_extension=ioncube_loader_lin_5.6.so" >> /usr/local/etc/php/conf.d/ioncube.ini
 
+# Install xDebug
+RUN pecl install xdebug
+RUN touch /usr/local/etc/php/conf.d/xdebug.ini && echo "zend_extension=xdebug.so" >> /usr/local/etc/php/conf.d/xdebug.ini
+
 # Install Sass
 RUN apt-get install -y rubygems
 RUN su -c "gem install sass"
